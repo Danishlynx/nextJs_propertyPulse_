@@ -6,19 +6,22 @@ import { revalidatePath } from 'next/cache';
 
 async function markMessageAsRead(messageId) {
   await connectDB();
+
   const sessionUser = await getSessionUser();
-  if (!sessionUser || !sessionUser.userId) {
+
+  if (!sessionUser || !sessionUser.user) {
     throw new Error('User ID is required');
   }
 
   const { userId } = sessionUser;
+
   const message = await Message.findById(messageId);
 
   if (!message) throw new Error('Message not found');
 
-  //Verify ownership of the app
+  // Verify ownership
   if (message.recipient.toString() !== userId) {
-    throw new Error('Unauthorized');
+    return new Response('Unauthorized', { status: 401 });
   }
 
   message.read = !message.read;

@@ -3,25 +3,30 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import markMessageAsRead from '@/app/actions/markMessageAsRead';
 import deleteMessage from '@/app/actions/deleteMessage';
+import { useGlobalContext } from '@/context/GlobalContext';
 
 const MessageCard = ({ message }) => {
   const [isRead, setIsRead] = useState(message.read);
   const [isDeleted, setIsDeleted] = useState(false);
 
+  const { setUnreadCount } = useGlobalContext();
+
   const handleReadClick = async () => {
     const read = await markMessageAsRead(message._id);
     setIsRead(read);
-    toast.success(`Marked As ${read ? 'Read' : 'New'}`);
+    setUnreadCount((prevCount) => (read ? prevCount - 1 : prevCount + 1));
+    toast.success(`Marked as ${read ? 'read' : 'new'}`);
   };
 
   const handleDeleteClick = async () => {
     await deleteMessage(message._id);
     setIsDeleted(true);
+    setUnreadCount((prevCount) => (isRead ? prevCount : prevCount - 1));
     toast.success('Message Deleted');
   };
 
   if (isDeleted) {
-    return <p>Deleted Message</p>;
+    return <p>Deleted message</p>;
   }
 
   return (
@@ -36,6 +41,7 @@ const MessageCard = ({ message }) => {
         {message.property.name}
       </h2>
       <p className='text-gray-700'>{message.body}</p>
+
       <ul className='mt-4'>
         <li>
           <strong>Reply Email:</strong>{' '}
@@ -56,9 +62,11 @@ const MessageCard = ({ message }) => {
       </ul>
       <button
         onClick={handleReadClick}
-        className='mt-4 mr-3 bg-blue-500 text-white py-1 px-3 rounded-md'
+        className={`mt-4 mr-3 ${
+          isRead ? 'bg-gray-300' : 'bg-blue-500 text-white'
+        } py-1 px-3 rounded-md`}
       >
-        {isRead ? 'Mark As New' : 'Mark as Read'}
+        {isRead ? 'Mark As New' : 'Mark As Read'}
       </button>
       <button
         onClick={handleDeleteClick}
