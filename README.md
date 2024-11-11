@@ -2,13 +2,10 @@
 
 > A sleek and efficient web application designed to help you find your next rental property.
 
-This project is part of the **[Next 14 From Scratch Course](https://www.traversymedia.com/nextjs-from-scratch)** by Traversy Media, offering a comprehensive approach to building modern web applications. This second iteration of Property Pulse replaces API routes with Next.js server actions for optimized performance.
+![Screenshot 2024-11-11 172303](https://github.com/user-attachments/assets/90d13a82-fa74-4937-ae67-9d89b5a5c194)
 
-<div align="center">
-  <img src="/public/images/screen.jpg" alt="Property Pulse Screenshot"/>
-</div>
+![Screenshot 2024-11-11 173645](https://github.com/user-attachments/assets/e445d231-13d3-4412-ac2e-66ebd0acede7)
 
----
 
 ## **Features**
 
@@ -47,7 +44,17 @@ Property Pulse leverages a range of cutting-edge technologies to deliver a moder
 
 ---
 
+
+
 ## **Getting Started**
+![Screenshot 2024-11-11 173645](https://github.com/user-attachments/assets/876c3247-f3cd-44e1-af61-b15434488ee2)
+![Screenshot 2024-11-11 173636](https://github.com/user-attachments/assets/78e2d5de-7017-408d-ab2e-2010b5d1f4eb)
+![Screenshot 2024-11-11 173152](https://github.com/user-attachments/assets/6d816179-18ca-4ec0-8a68-4679cc75aef2)
+![Screenshot 2024-11-11 172343](https://github.com/user-attachments/assets/303b99e1-0486-4758-8c13-840c1f7dcb3f)
+![Screenshot 2024-11-11 172319](https://github.com/user-attachments/assets/e293829d-b383-4282-bbb1-57f0c0a9d48c)
+![Screenshot 2024-11-11 172303](https://github.com/user-attachments/assets/8955b5b9-8102-4e3c-a7d6-f62c2a1a827e)
+![Screenshot 2024-11-11 172246](https://github.com/user-attachments/assets/424dde1f-60ff-4dc8-91da-a0a16c7a8bfc)
+
 
 ### **Prerequisites**
 
