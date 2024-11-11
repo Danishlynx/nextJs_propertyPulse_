@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **Property Pulse**
 
-## Getting Started
+> A sleek and efficient web application designed to help you find your next rental property.
 
-First, run the development server:
+This project is part of the **[Next 14 From Scratch Course](https://www.traversymedia.com/nextjs-from-scratch)** by Traversy Media, offering a comprehensive approach to building modern web applications. This second iteration of Property Pulse replaces API routes with Next.js server actions for optimized performance.
+
+<div align="center">
+  <img src="/public/images/screen.jpg" alt="Property Pulse Screenshot"/>
+</div>
+
+---
+
+## **Features**
+
+Property Pulse is packed with powerful features to streamline your rental property search:
+
+- ✅ **User Authentication** – Secure login via Google & NextAuth.
+- ✅ **Authorization & Route Protection** – Access control for enhanced security.
+- ✅ **User Profile** – Manage user listings directly.
+- ✅ **Property Listing CRUD** – Full control over property listings.
+- ✅ **Image Upload** – Upload multiple property images.
+- ✅ **Property Search** – Find properties that match your criteria.
+- ✅ **Messaging with Unread Notifications** – Keep track of property inquiries.
+- ✅ **Photoswipe Image Gallery** – Browse property images seamlessly.
+- ✅ **Mapbox Integration** – Interactive map view of property locations.
+- ✅ **Toast Notifications** – Real-time feedback on actions.
+- ✅ **Property Bookmarking** – Save properties for later.
+- ✅ **Social Media Sharing** – Share listings on social platforms.
+- ✅ **Loading Spinners** – Smooth and user-friendly loading experience.
+- ✅ **Responsive Design** – Fully optimized for mobile and desktop.
+- ✅ **Custom 404 Page** – Unique experience for unavailable routes.
+- ✅ **Next.js Actions** – Enhanced performance with server actions.
+
+---
+
+## **Tech Stack**
+
+Property Pulse leverages a range of cutting-edge technologies to deliver a modern, responsive experience:
+
+- **Frontend:** [Next.js](https://nextjs.org/), [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/)
+- **Database:** [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+- **UI Enhancements:** [React Icons](https://react-icons.github.io/react-icons/), [Photoswipe](https://photoswipe.com/)
+- **Image Management:** [Cloudinary](https://cloudinary.com/)
+- **Maps & Geocoding:** [Mapbox](https://www.mapbox.com/), [React Map GL](https://visgl.github.io/react-map-gl/), [React Geocode](https://www.npmjs.com/package/react-geocode)
+- **UI Components:** [React Spinners](https://www.npmjs.com/package/react-spinners), [React Toastify](https://fkhadra.github.io/react-toastify/), [React Share](https://www.npmjs.com/package/react-share)
+
+---
+
+## **Getting Started**
+
+### **Prerequisites**
+
+To set up Property Pulse, you’ll need the following accounts and credentials:
+
+- **Node.js** – version 18 or higher
+- **MongoDB Atlas** – [Create a cluster here](https://www.mongodb.com/)
+- **Cloudinary** – [Sign up here](https://cloudinary.com/)
+- **Google Cloud Console** – [Set up here](https://console.cloud.google.com/)
+- **Mapbox** – [Sign up here](https://www.mapbox.com/)
+
+### **Environment Variables**
+
+Rename the `env.example` file to `.env` and populate it with your credentials:
+
+- `MONGODB_URI`: MongoDB connection string from MongoDB Atlas
+- `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: Google credentials
+- `NEXTAUTH_SECRET`: Secret key for NextAuth (generate using `openssl rand -base64 32`)
+- `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`: Cloudinary credentials
+- `NEXT_PUBLIC_MAPBOX_TOKEN`: Mapbox token
+- `NEXT_PUBLIC_GOOGLE_GEOCODING_API_KEY`: Google Geocoding API key
+
+### **Installation**
+
+Install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm install
