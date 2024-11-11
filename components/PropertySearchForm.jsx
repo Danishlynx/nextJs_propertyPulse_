@@ -5,17 +5,21 @@ import { useRouter } from 'next/navigation';
 const PropertySearchForm = () => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('All');
+
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (location === '' && propertyType === 'All') {
       router.push('/properties');
     } else {
       const query = `?location=${location}&propertyType=${propertyType}`;
+
       router.push(`/properties/search-results${query}`);
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -28,7 +32,7 @@ const PropertySearchForm = () => {
         <input
           type='text'
           id='location'
-          placeholder='Enter Location (City, State, Zip, etc'
+          placeholder='Enter Keywords or Location'
           className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-blue-500'
           value={location}
           onChange={(e) => setLocation(e.target.value)}

@@ -8,16 +8,16 @@ import { GlobalProvider } from '@/context/GlobalContext';
 import 'photoswipe/dist/photoswipe.css';
 
 export const metadata = {
-  title: 'Property Pulse',
+  title: 'PropertyPulse',
+  description: 'Find The Perfect Rental Property',
   keywords: 'rental, property, real estate',
-  description: 'Find the perfect rental property',
 };
 
 const MainLayout = ({ children }) => {
   return (
     <AuthProvider>
       <GlobalProvider>
-        <html>
+        <html lang='en'>
           <body>
             <Navbar />
             <main>{children}</main>
