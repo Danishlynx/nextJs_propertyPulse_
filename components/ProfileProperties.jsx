@@ -10,20 +10,22 @@ const ProfileProperties = ({ properties: initialProperties }) => {
 
   const handleDeleteProperty = async (propertyId) => {
     const confirmed = window.confirm(
-      'Are you sure that you want to delete this property ?'
+      'Are you sure you want to delete this property?'
     );
 
     if (!confirmed) return;
 
-    await deleteProperty(propertyId);
+    const deletePropertyById = deleteProperty.bind(null, propertyId);
+
+    await deletePropertyById();
+
+    toast.success('Property Deleted');
 
     const updatedProperties = properties.filter(
       (property) => property._id !== propertyId
     );
 
     setProperties(updatedProperties);
-
-    toast.success('Property Deleted Successfully');
   };
 
   return properties.map((property) => (
@@ -32,15 +34,16 @@ const ProfileProperties = ({ properties: initialProperties }) => {
         <Image
           className='h-32 w-full rounded-md object-cover'
           src={property.images[0]}
-          width={1000}
-          height={200}
-          alt='Property 1'
+          alt=''
+          width={500}
+          height={100}
+          priority={true}
         />
       </Link>
       <div className='mt-2'>
         <p className='text-lg font-semibold'>{property.name}</p>
         <p className='text-gray-600'>
-          Address: {property.location.street} {property.location.city}
+          Address: {property.location.street} {property.location.city}{' '}
           {property.location.state}
         </p>
       </div>
@@ -52,9 +55,9 @@ const ProfileProperties = ({ properties: initialProperties }) => {
           Edit
         </Link>
         <button
+          onClick={() => handleDeleteProperty(property._id)}
           className='bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600'
           type='button'
-          onClick={() => handleDeleteProperty(property._id)}
         >
           Delete
         </button>

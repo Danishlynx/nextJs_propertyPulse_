@@ -4,6 +4,7 @@ import FeaturedPropertyCard from './FeaturedPropertyCard';
 
 const FeaturedProperties = async () => {
   await connectDB();
+
   const properties = await Property.find({
     is_featured: true,
   }).lean();
@@ -23,5 +24,4 @@ const FeaturedProperties = async () => {
     </section>
   ) : null;
 };
-
 export default FeaturedProperties;

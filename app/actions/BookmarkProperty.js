@@ -6,34 +6,42 @@ import { revalidatePath } from 'next/cache';
 
 async function bookmarkProperty(propertyId) {
   await connectDB();
+
   const sessionUser = await getSessionUser();
+
   if (!sessionUser || !sessionUser.userId) {
-    throw new Error('User ID is required');
+    return { error: 'User ID is required' };
   }
 
   const { userId } = sessionUser;
+
+  // Find user in database
   const user = await User.findById(userId);
 
+  // Check if property is bookmarked
   let isBookmarked = user.bookmarks.includes(propertyId);
+  console.log(isBookmarked);
+
   let message;
 
   if (isBookmarked) {
+    // If already bookmarked, remove it
     user.bookmarks.pull(propertyId);
-    message = 'Bookmark Removed';
+    message = 'Bookmark removed successfully';
     isBookmarked = false;
   } else {
+    // If not bookmarked, add it
     user.bookmarks.push(propertyId);
-    message = 'Bookmark Added';
+    message = 'Bookmark added successfully';
     isBookmarked = true;
   }
+
+  console.log(message);
 
   await user.save();
   revalidatePath('/properties/saved', 'page');
 
-  return {
-    message,
-    isBookmarked,
-  };
+  return { message, isBookmarked };
 }
 
 export default bookmarkProperty;

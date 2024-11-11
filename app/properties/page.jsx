@@ -1,7 +1,8 @@
 import connectDB from '../config/database';
-import PropertyCard from '@/PropertyCard';
+import PropertyCard from '@/components/PropertyCard';
 import Property from '../models/Property';
 import Pagination from '@/components/Pagination';
+import PropertySearchForm from '@/components/PropertySearchForm';
 
 const PropertiesPage = async ({ searchParams: { pageSize = 9, page = 1 } }) => {
   await connectDB();
@@ -16,7 +17,9 @@ const PropertiesPage = async ({ searchParams: { pageSize = 9, page = 1 } }) => {
   return (
     <>
       <section className='bg-blue-700 py-4'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start'></div>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start'>
+          <PropertySearchForm />
+        </div>
       </section>
       <section className='px-4 py-6'>
         <div className='container-xl lg:container m-auto px-4 py-6'>
@@ -25,8 +28,8 @@ const PropertiesPage = async ({ searchParams: { pageSize = 9, page = 1 } }) => {
             <p>No properties found</p>
           ) : (
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-              {properties.map((property, index) => (
-                <PropertyCard property={property} key={index} />
+              {properties.map((property) => (
+                <PropertyCard key={property._id} property={property} />
               ))}
             </div>
           )}

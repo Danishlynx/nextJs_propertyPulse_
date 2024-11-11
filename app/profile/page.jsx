@@ -8,11 +8,13 @@ import { convertToSerializableObject } from '@/utils/convertToObject';
 
 const ProfilePage = async () => {
   await connectDB();
+
   const sessionUser = await getSessionUser();
+
   const { userId } = sessionUser;
 
   if (!userId) {
-    throw new Error('User Id is required');
+    throw new Error('User ID is required');
   }
 
   const propertiesDocs = await Property.find({ owner: userId }).lean();
@@ -36,19 +38,22 @@ const ProfilePage = async () => {
               </div>
 
               <h2 className='text-2xl mb-4'>
-                <span className='font-bold block'>Name: </span>
+                <span className='font-bold block'>Name: </span>{' '}
                 {sessionUser.user.name}
               </h2>
               <h2 className='text-2xl'>
-                <span className='font-bold block'>Email: </span>
+                <span className='font-bold block'>Email: </span>{' '}
                 {sessionUser.user.email}
               </h2>
             </div>
 
             <div className='md:w-3/4 md:pl-4'>
               <h2 className='text-xl font-semibold mb-4'>Your Listings</h2>
-
-              <ProfileProperties properties={properties} />
+              {properties.length === 0 ? (
+                <p>You have no property listings</p>
+              ) : (
+                <ProfileProperties properties={properties} />
+              )}
             </div>
           </div>
         </div>
