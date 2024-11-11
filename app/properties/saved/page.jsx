@@ -1,4 +1,4 @@
-import PropertyCard from '@/PropertyCard';
+import PropertyCard from '@/components/PropertyCard';
 import connectDB from '@/app/config/database';
 import User from '@/app/models/User';
 import { getSessionUser } from '@/utils/getSessionUser';
