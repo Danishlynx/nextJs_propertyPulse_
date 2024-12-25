@@ -1,5 +1,7 @@
 # **Property Pulse**
 
+Live link: https://next-js-property-pulse-chi.vercel.app/
+
 > A sleek and efficient web application designed to help you find your next rental property.
 
 ![Screenshot 2024-11-11 172303](https://github.com/user-attachments/assets/90d13a82-fa74-4937-ae67-9d89b5a5c194)
